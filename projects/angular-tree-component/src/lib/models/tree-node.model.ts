@@ -17,6 +17,7 @@ export class TreeNode implements ITreeNode {
       return this.children.some((node: TreeNode) => node.isSelected);
     }
   };
+//   @computed get isCheckboxDisabled(){return this.treeModel.isCheckboxDisabled(this);}
   @computed get isAllSelected() {
     if (this.isSelectable()) {
       return this.treeModel.isSelected(this);
@@ -85,9 +86,33 @@ export class TreeNode implements ITreeNode {
     this.setField('id', value);
   }
 
+ get isCheckboxDisabled(){
+//   return this.getDescendantField('isCheckboxDisabled');
+// this.getField('isCheckboxDisabled')
+  let keyName = this.options['isCheckboxDisabledField'];
+  if(keyName.includes('.')){
+      let obj=this.data;
+      let arr = this.options['isCheckboxDisabledField'].split(".");
+      while(arr.length && (obj = obj[arr.shift()]));
+      return obj;
+  }
+  return this.data[this.options['isCheckboxDisabledField']];
+ }
+
   getField(key) {
     return this.data[this.options[`${key}Field`]];
   }
+
+//   getDescendantField(key) {
+//     let keyName =this.options[`${key}Field`];
+//     if(keyName.includes('.')){
+//         let obj=this.data;
+//         let arr = this.options[`${key}Field`].split(".");
+//         while(arr.length && (obj = obj[arr.shift()]));
+//         return obj;
+//     }
+//     return this.data[this.options[`${key}Field`]];
+//   }
 
   setField(key, value) {
     this.data[this.options[`${key}Field`]] = value;
@@ -313,10 +338,12 @@ export class TreeNode implements ITreeNode {
   }
 
   @action setIsSelected(value) {
-    if (this.isSelectable()) {
-      this.treeModel.setSelectedNode(this, value);
-    } else {
-      this.visibleChildren.forEach((child) => child.setIsSelected(value));
+    if(!this.isCheckboxDisabled){
+      if (this.isSelectable()) {
+        this.treeModel.setSelectedNode(this, value);
+      } else {
+        this.visibleChildren.forEach((child) => child.setIsSelected(value));
+      }
     }
 
     return this;

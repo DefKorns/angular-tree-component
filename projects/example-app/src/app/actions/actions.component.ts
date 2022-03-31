@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { TreeNode, TreeModel, TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from 'angular-tree-component';
+import { Component } from '@angular/core';
+import { TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from 'projects/angular-tree-component/src/public-api';
 
 const actionMapping: IActionMapping = {
   mouse: {

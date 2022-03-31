@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TreeModel, TreeNode } from 'angular-tree-component';
+import { TreeModel, TreeNode } from 'projects/angular-tree-component/src/public-api';
 
 @Component({
   selector: 'app-filter',

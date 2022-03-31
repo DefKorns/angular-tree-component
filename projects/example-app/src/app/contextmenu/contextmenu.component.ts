@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { ITreeOptions, TREE_ACTIONS, TreeNode, TreeModel } from 'angular-tree-component';
+import { ITreeOptions, TREE_ACTIONS, TreeNode, TreeModel } from 'projects/angular-tree-component/src/public-api';
 
 @Component({
   selector: 'app-contextmenu',

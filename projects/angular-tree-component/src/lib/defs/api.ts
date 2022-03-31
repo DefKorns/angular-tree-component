@@ -29,6 +29,7 @@ export interface ITreeState {
   hiddenNodeIds?: IDTypeDictionary;
   selectedLeafNodeIds?: IDTypeDictionary;
   focusedNodeId?: IDType;
+  disabledNodeIds?: IDTypeDictionary;
 }
 
 export interface ITreeOptions {
@@ -285,6 +286,17 @@ export interface ITreeOptions {
      * and then the scrolling container is the viewport inside the tree component
      */
     scrollContainer?: HTMLElement;
+    /**
+     * A string representing the attribute of the node that contains whether the node starts as expanded.
+ 
+       * **Default value: `isCheckboxDisabledField`.**
+ 
+       For example, if your nodes have an `disabled` attribute, that contains a boolean value, use:
+       ```
+         options = { isCheckboxDisabledField: 'disabled' }
+       ```
+     */
+    isCheckboxDisabledField?: string;
  }
 
 export interface ITreeNode {

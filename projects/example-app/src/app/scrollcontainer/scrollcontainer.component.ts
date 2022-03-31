@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TreeNode, TreeModel, TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from 'angular-tree-component';
-
+import { TreeNode, TreeModel, TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from 'projects/angular-tree-component/src/public-api';
 @Component({
   selector: 'app-scrollcontainer',
   styles: [

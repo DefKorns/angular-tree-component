@@ -6,7 +6,7 @@ import {
   KEYS,
   IActionMapping,
   ITreeOptions
-} from 'angular-tree-component';
+} from 'projects/angular-tree-component/src/public-api';
 
 const actionMapping: IActionMapping = {
   mouse: {

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TreeNode, TreeModel, TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from 'angular-tree-component';
+import { ITreeState } from 'angular-tree-component/public-api';
+import { TreeNode, TreeModel, TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from 'projects/angular-tree-component/src/public-api';
 
 const actionMapping: IActionMapping = {
   mouse: {
@@ -56,6 +57,7 @@ const actionMapping: IActionMapping = {
       [options]="customTemplateStringOptions"
       [focused]="true"
       (event)="onEvent($event)"
+      [(state)]="state"
       (initialized)="onInitialized(tree)"
     >
       <ng-template #treeNodeTemplate let-node>
@@ -130,6 +132,9 @@ export class FullTreeComponent implements OnInit {
     getChildren: this.getChildren.bind(this),
     actionMapping,
     nodeHeight: 23,
+    useCheckbox: true,
+      useTriState: true,
+      isCheckboxDisabledField:'bilhoca',
     allowDrag: (node) => {
       // console.log('allowDrag?');
       return true;
@@ -144,67 +149,102 @@ export class FullTreeComponent implements OnInit {
   constructor() {
   }
   ngOnInit() {
-    setTimeout(() => {
-      this.nodes = [
+    this.nodes =[
         {
+          name: 'root1',
+          id:1,
+          displayName: 'root1',
           expanded: true,
-          name: 'root expanded',
-          subTitle: 'the root',
+          selectable: true,
+          state: {
+            entitled: true,
+            disabled: true
+          },
           children: [
             {
-              name: 'child2',
-              subTitle: 'a bad child',
-              hasChildren: false
+              name: 'child1',
+              displayName: 'child1',
+              id:36,
+              expanded: false,
+              selectable: true,
+              bilhoca: true,
+              state: {
+                entitled: true,
+                disabled: false
+              },
+              children: [{
+                name: 'Dashboard',
+                displayName: 'Dashboard',
+                id:45654,
+                expanded: false,
+                selectable: true,
+                state: {
+                  entitled: true,
+                  disabled: false
+                },
+                children: []
+              },
+              {
+                name: 'Laptop',
+                displayName: 'Laptop',
+                id:3455,
+                expanded: false,
+                selectable: true,
+                state: {
+                  entitled: true,
+                  disabled: false
+                },
+                children: []
+              },
+              {
+                name: 'Electronics',
+                displayName: 'Electronics',
+                id:25465,
+                expanded: false,
+                selectable: true,
+                state: {
+                  entitled: true,
+                  disabled: false
+                },
+                children: []
+              }]
             },
             {
               name: 'child2',
-              subTitle: 'a bad child',
-              hasChildren: false
-            }
-          ]
-        },
-        {
-          name: 'root2',
-          subTitle: 'the second root',
-          children: [
+              displayName: 'child2',
+              id:36,
+              expanded: false,
+              selectable: true,
+              state: {
+                entitled: true,
+                disabled: false
+              },
+              children: []
+            },
             {
-              name: 'child2.1',
-              subTitle: 'new and improved',
-              uuid: '11',
-              hasChildren: false
-            }, {
-              name: 'child2.2',
-              subTitle: 'new and improved2',
-              children: [
-                {
-                  uuid: 1001,
-                  name: 'subsub',
-                  subTitle: 'subsub',
-                  hasChildren: false
-                }
-              ]
+              name: 'child3',
+              displayName: 'child3',
+              id:36,
+              expanded: false,
+              selectable: true,
+              state: {
+                entitled: true,
+                disabled: false
+              },
+              children: []
             }
           ]
-        },
-        {
-          name: 'asyncroot',
-          hasChildren: true
         }
       ];
-
-      for (let i = 0; i < 1000; i++) {
-        this.nodes.push({
-          name: `rootDynamic${i}`,
-          subTitle: `root created dynamically ${i}`,
-          children: new Array(10).fill(null).map((item, n) => ({
-            name: `rootChildDynamic${i}.${n}`,
-            subTitle: `rootChildDynamicTitle${i}.${n}`
-          }))
-        });
-      }
-    }, 1);
   }
-
+  public get state(): ITreeState {
+      console.log('get', localStorage.treeState && JSON.parse(localStorage.treeState));
+    return localStorage.treeState && JSON.parse(localStorage.treeState);
+  }
+  public set state(state: ITreeState) {
+    console.log('set', localStorage.treeState = JSON.stringify(state));
+    localStorage.treeState = JSON.stringify(state);
+  }
   getChildren(node: TreeNode) {
     return new Promise((resolve, reject) => {
       setTimeout(() => resolve(this.asyncChildren.map((c) => {
@@ -239,6 +279,7 @@ export class FullTreeComponent implements OnInit {
 
   onEvent(event: any) {
     console.log(event);
+    // console.log('state', event.node.data);
   }
 
   onInitialized(tree: any) {

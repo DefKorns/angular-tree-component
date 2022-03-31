@@ -1,4 +1,4 @@
-import { ITreeOptions } from 'angular-tree-component';
+import { ITreeOptions } from 'projects/angular-tree-component/src/public-api';
 import { Component } from '@angular/core';
 
 @Component({

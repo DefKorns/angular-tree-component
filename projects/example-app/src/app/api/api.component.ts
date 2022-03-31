@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { TreeNode, TreeModel, ITreeOptions } from 'angular-tree-component';
+import { Component } from '@angular/core';
+import { ITreeOptions } from 'projects/angular-tree-component/src/public-api';
 
 @Component({
   selector: 'app-api',

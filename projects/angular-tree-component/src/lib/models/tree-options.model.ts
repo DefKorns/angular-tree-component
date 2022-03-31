@@ -94,6 +94,7 @@ export class TreeOptions {
   get scrollContainer(): HTMLElement { return this.options.scrollContainer; }
   get allowDragoverStyling(): boolean { return this.options.allowDragoverStyling === undefined ? true : this.options.allowDragoverStyling; }
   actionMapping: IActionMapping;
+  get isCheckboxDisabledField(): string { return this.options.isCheckboxDisabledField || 'isCheckboxDisabledField'; }
 
   constructor(private options: ITreeOptions = {}) {
     this.actionMapping = {

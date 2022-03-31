@@ -23,6 +23,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
   @observable hiddenNodeIds: IDTypeDictionary = {};
   @observable focusedNodeId: IDType = null;
   @observable virtualRoot: TreeNode;
+//   @observable disabledNodeIds: IDTypeDictionary = {};
 
   private firstUpdate = true;
   private events: any;
@@ -106,7 +107,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
         .filter((id) => this.hiddenNodeIds[id])
         .map((id) => this.getNodeById(id));
 
-    return nodes.filter(Boolean);
+      return nodes.filter(Boolean);
   }
 
   @computed get selectedLeafNodes() {
@@ -172,6 +173,10 @@ export class TreeModel implements ITreeModel, OnDestroy {
   isSelected(node) {
     return this.selectedLeafNodeIds[node.id];
   }
+
+//   isCheckboxDisabled(node) {
+//       return this.disabledNodeIds[node.id];
+//   }
 
   ngOnDestroy() {
     this.dispose();

@@ -6,7 +6,7 @@ import { TreeNode } from '../models/tree-node.model';
   encapsulation: ViewEncapsulation.None,
   styles: [],
   template: `
-    <ng-container *treeMobxAutorun="{ dontDetach: true }">
+    <ng-container *treeMobxAutorun="{dontDetach: true}">
       <div
         [class.tree-children]="true"
         [class.tree-children-no-padding]="node.options.levelPadding"

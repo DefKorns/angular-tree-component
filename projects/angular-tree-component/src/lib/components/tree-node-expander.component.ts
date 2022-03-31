@@ -8,7 +8,7 @@ import { TreeNode } from '../models/tree-node.model';
   template: `
     <ng-container *treeMobxAutorun="{ dontDetach: true }">
       <span
-        *ngIf="node.hasChildren"
+        *ngIf="node.hasChildren && !node.isCheckboxDisabled"
         [class.toggle-children-wrapper-expanded]="node.isExpanded"
         [class.toggle-children-wrapper-collapsed]="node.isCollapsed"
         class="toggle-children-wrapper"
