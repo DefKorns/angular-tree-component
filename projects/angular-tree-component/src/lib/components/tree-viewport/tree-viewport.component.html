@@ -1,0 +1,6 @@
+<ng-container *treeMobxAutorun="{ dontDetach: true }">
+    <div [style.height]="getTotalHeight()"
+         class="tree-viewport">
+        <ng-content></ng-content>
+    </div>
+</ng-container>

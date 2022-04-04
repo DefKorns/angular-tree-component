@@ -9,7 +9,7 @@ const actionMapping: IActionMapping = {
       alert(`context menu for ${node.data.name}`);
     },
     dblClick: (tree, node, $event) => {
-      if (node.hasChildren) {
+      if (node.hasChildren && !node.isCheckboxDisabled) {
         TREE_ACTIONS.TOGGLE_EXPANDED(tree, node, $event);
       }
     },
@@ -152,7 +152,6 @@ export class FullTreeComponent implements OnInit {
     this.nodes =[
         {
           name: 'root1',
-          id:1,
           displayName: 'root1',
           expanded: true,
           selectable: true,
@@ -164,7 +163,6 @@ export class FullTreeComponent implements OnInit {
             {
               name: 'child1',
               displayName: 'child1',
-              id:36,
               expanded: false,
               selectable: true,
               bilhoca: true,
@@ -238,11 +236,9 @@ export class FullTreeComponent implements OnInit {
       ];
   }
   public get state(): ITreeState {
-      console.log('get', localStorage.treeState && JSON.parse(localStorage.treeState));
     return localStorage.treeState && JSON.parse(localStorage.treeState);
   }
   public set state(state: ITreeState) {
-    console.log('set', localStorage.treeState = JSON.stringify(state));
     localStorage.treeState = JSON.stringify(state);
   }
   getChildren(node: TreeNode) {
@@ -273,13 +269,12 @@ export class FullTreeComponent implements OnInit {
 
   activateSubSub(tree: any) {
     // tree.treeModel.getNodeBy((node) => node.data.name === 'subsub')
-    tree.treeModel.getNodeById(1001)
+    tree.treeModel.getNodeById(tree.treeModel.nodes[0].uuid === '8173078597570')
       .setActiveAndVisible();
   }
 
   onEvent(event: any) {
     console.log(event);
-    // console.log('state', event.node.data);
   }
 
   onInitialized(tree: any) {

@@ -1,0 +1,5 @@
+<span *ngIf="!template"
+      class="tree-loading">loading...</span>
+<ng-container [ngTemplateOutlet]="template"
+              [ngTemplateOutletContext]="{ $implicit: node }">
+</ng-container>

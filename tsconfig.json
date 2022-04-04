@@ -33,6 +33,8 @@
   "buildOnSave": false,
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
-    "enableIvy": false
+    // "enableIvy": false
+    "enableIvy": true,
+    "allowEmptyCodegenFiles": true
   }
 }

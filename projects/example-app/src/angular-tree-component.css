@@ -82,3 +82,22 @@ tree-root .angular-tree-component-rtl .tree-children {
 tree-node-checkbox {
   padding: 1px;
 }
+
+
+.tree-viewport--horizontal .angular-tree-component{
+    flex-flow: column wrap;
+    display: flex;
+}
+
+.tree-viewport--horizontal tree-node-collection{
+    display: flex;
+    flex-flow: column wrap;
+    max-height: 85vh;
+}
+.tree-viewport--horizontal tree-node-collection >.tree-node-collection{
+    /* margin-top: 0px; */
+    display: flex;
+    flex-flow: column wrap;
+    /* max-height: 351px; */
+    overflow-y: hidden;
+}

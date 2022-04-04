@@ -202,7 +202,8 @@ export interface ITreeOptions {
     * }
     ```
     */
-   useVirtualScroll?: boolean;
+    useVirtualScroll?: boolean;
+    useVirtualHorizontalScroll?: boolean;
    /**
     * For use with `useVirtualScroll` option.
     * Specify a height for nodes in pixels. Could be either:

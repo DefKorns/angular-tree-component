@@ -1,0 +1,21 @@
+<tree-viewport #viewport>
+    <div class="angular-tree-component"
+         [class.node-dragging]="treeDraggedElement.isDragging()"
+         [class.angular-tree-component-rtl]="treeModel.options.rtl">
+        <tree-node-collection *ngIf="treeModel.roots"
+                              [nodes]="treeModel.roots"
+                              [treeModel]="treeModel"
+                              [templates]="{
+                                  loadingTemplate: loadingTemplate,
+                                  treeNodeTemplate: treeNodeTemplate,
+                                  treeNodeWrapperTemplate: treeNodeWrapperTemplate,
+                                  treeNodeFullTemplate: treeNodeFullTemplate
+                                }">
+        </tree-node-collection>
+        <tree-node-drop-slot class="empty-tree-drop-slot"
+                             *ngIf="treeModel.isEmptyTree()"
+                             [dropIndex]="0"
+                             [node]="treeModel.virtualRoot">
+        </tree-node-drop-slot>
+    </div>
+</tree-viewport>

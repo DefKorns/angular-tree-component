@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class TreeDraggedElement {
-  _draggedElement: any = null;
+    _draggedElement: any = null;
 
-  set(draggedElement: any) {
-    this._draggedElement = draggedElement;
-  }
+    set(draggedElement: any) {
+        this._draggedElement = draggedElement;
+    }
 
-  get(): any {
-    return this._draggedElement;
-  }
+    get(): any {
+        return this._draggedElement;
+    }
 
-  isDragging() {
-    return !!this.get();
-  }
+    isDragging() {
+        return !!this.get();
+    }
 }
