@@ -44,10 +44,12 @@
   padding-right: 3px;
 }
 .node-content-wrapper {
-  display: inline-block;
+  /* display: inline-block; */
+  display: flex;
   padding: 2px 5px;
   border-radius: 2px;
   transition: background-color 0.15s, box-shadow 0.15s;
+  flex: 1 1 auto;
 }
 .node-wrapper {
   display: flex;

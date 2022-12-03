@@ -7,7 +7,9 @@ import {
 } from '@angular/core';
 import { reaction } from 'mobx';
 import { observable, computed, action } from '../../mobx-angular/mobx-proxy';
-import { TreeVirtualScroll, TreeNode, TreeModel } from '../../models';
+import { TreeVirtualScroll } from '../../models/tree-virtual-scroll.model';
+import { TreeNode } from '../../models/tree-node.model';
+import { TreeModel } from '../../models/tree.model';
 
 @Component({
     selector: 'tree-node-collection',

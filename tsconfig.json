@@ -20,11 +20,9 @@
     ],
     "paths": {
       "angular-tree-component": [
-        "dist/angular-tree-component",
         "dist/angular-tree-component"
       ],
       "angular-tree-component/*": [
-        "dist/angular-tree-component/*",
         "dist/angular-tree-component/*"
       ]
     }
@@ -32,9 +30,13 @@
   "compileOnSave": false,
   "buildOnSave": false,
   "angularCompilerOptions": {
-    "skipTemplateCodegen": true,
-    // "enableIvy": false
-    "enableIvy": true,
-    "allowEmptyCodegenFiles": true
+    // "skipTemplateCodegen": true,
+    // // "enableIvy": false
+    // "enableIvy": true,
+    // "allowEmptyCodegenFiles": true,
+    // "strictTemplates": true
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "enableIvy": true
   }
 }

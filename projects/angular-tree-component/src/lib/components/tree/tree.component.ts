@@ -1,6 +1,8 @@
 import { Component, ContentChild, EventEmitter, HostListener, Input, OnChanges, Output, TemplateRef, ViewChild } from '@angular/core';
-import { TreeModel, TreeDraggedElement, TreeOptions} from '../../models';
-import { ITreeOptions } from '../../defs';
+import { TreeModel } from '../../models/tree.model';
+import { TreeDraggedElement } from '../../models/tree-dragged-element.model';
+import { TreeOptions } from '../../models/tree-options.model';
+import { ITreeOptions } from '../../defs/api';
 import { TreeViewportComponent } from '../tree-viewport/tree-viewport.component';
 
 

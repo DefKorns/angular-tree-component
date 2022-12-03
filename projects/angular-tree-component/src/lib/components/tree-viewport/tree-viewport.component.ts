@@ -6,8 +6,8 @@ import {
     OnDestroy,
     HostBinding,
   } from '@angular/core';
-  import { TreeVirtualScroll } from '../../models';
-  import { TREE_EVENTS } from '../../constants';
+  import { TreeVirtualScroll } from '../../models/tree-virtual-scroll.model';
+  import { TREE_EVENTS } from '../../constants/events';
 
 @Component({
     selector: 'tree-viewport',

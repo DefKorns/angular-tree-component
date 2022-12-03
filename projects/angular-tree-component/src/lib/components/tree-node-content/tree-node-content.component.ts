@@ -1,5 +1,5 @@
 import { Component, Input, ViewEncapsulation, TemplateRef, HostBinding } from '@angular/core';
-import { TreeNode } from '../../models';
+import { TreeNode } from '../../models/tree-node.model';
 
 @Component({
     selector: 'tree-node-content',

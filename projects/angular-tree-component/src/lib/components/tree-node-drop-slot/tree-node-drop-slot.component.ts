@@ -1,5 +1,5 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { TreeNode } from '../../models';
+import { TreeNode } from '../../models/tree-node.model';
 
 @Component({
     selector: 'TreeNodeDropSlot, tree-node-drop-slot',

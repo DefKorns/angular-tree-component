@@ -3,7 +3,7 @@ import {
     Input,
     ViewEncapsulation,
 } from '@angular/core';
-import { TreeNode } from '../../models';
+import { TreeNode } from '../../models/tree-node.model';
 
 @Component({
     selector: 'TreeNode, tree-node',
